@@ -1626,6 +1626,23 @@
   .service-task-desc { font-size: 0.9rem; line-height: 1.75; color: #444; margin: 0; }
   .service-task-divider { height: 1px; background: #e8e8e3; margin: 0; }
 
+  /* Language toggle dropdown */
+  .lang-toggle-group { display: flex; align-items: center; gap: 4px; margin-left: 16px; }
+  .lang-toggle-sep { color: #999; font-size: 0.8rem; }
+  .lang-toggle-item { position: relative; }
+  .lang-toggle-label { font-size: 0.8rem; color: #666; cursor: pointer; letter-spacing: 0.06em; padding: 4px 6px; }
+  .lang-toggle-label:hover { color: #1a1a1a; }
+  .lang-toggle-dropdown {
+    display: none; position: absolute; top: 100%; right: 0; margin-top: 8px;
+    background: #fff; border: 1px solid #e8e8e3; box-shadow: 0 4px 16px rgba(0,0,0,.08);
+    padding: 16px 20px; min-width: 220px; z-index: 100;
+  }
+  .lang-toggle-item:hover .lang-toggle-dropdown { display: block; }
+  .lang-toggle-heading { font-size: 0.72rem; color: #999; margin: 0 0 10px; letter-spacing: 0.04em; }
+  .lang-toggle-dropdown a { display: block; font-size: 0.85rem; color: #1a1a1a; text-decoration: none; padding: 6px 0; border-bottom: 1px solid #f0f0ec; }
+  .lang-toggle-dropdown a:last-child { border-bottom: none; }
+  .lang-toggle-dropdown a:hover { color: #555; }
+
   /* International hub page */
   .category-service-list {
     max-width: 720px;
@@ -1696,9 +1713,26 @@
     <nav class="nav">
       <a href="#about">私たちについて</a>
       <a href="#services" data-nav="services">サービス内容</a>
-      <a href="#intl" data-nav="intl">国際業務</a>
       <a href="#contact">お問い合わせ</a>
-      <span class="nav-lang"><strong>JP</strong> / <a href="#" onclick="alert('English version is coming soon.'); return false;" style="color:inherit;text-decoration:none;">EN</a> / <a href="#" onclick="alert('中文版即将推出。'); return false;" style="color:inherit;text-decoration:none;">中文</a></span>
+      <div class="lang-toggle-group">
+        <div class="lang-toggle-item">
+          <span class="lang-toggle-label">EN</span>
+          <div class="lang-toggle-dropdown">
+            <p class="lang-toggle-heading">英語でご覧になる方</p>
+            <a href="#" onclick="alert('English page coming soon.'); return false;">For Individuals（個人のお客様）</a>
+            <a href="#" onclick="alert('English page coming soon.'); return false;">For Corporates（法人のお客様）</a>
+          </div>
+        </div>
+        <span class="lang-toggle-sep">/</span>
+        <div class="lang-toggle-item">
+          <span class="lang-toggle-label">中文</span>
+          <div class="lang-toggle-dropdown">
+            <p class="lang-toggle-heading">中国語でご覧になる方</p>
+            <a href="#" onclick="alert('中文页面即将推出。'); return false;">个人客户（個人のお客様）</a>
+            <a href="#" onclick="alert('中文页面即将推出。'); return false;">法人客户（法人のお客様）</a>
+          </div>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
@@ -2411,6 +2445,28 @@
         <h2 class="service-item-title">中国語対応</h2>
         <p class="service-item-desc">
           中国語によるご相談に対応し、中華圏のお客様の日本における会計・税務をお支えいたします。先代より長年にわたり築いてきた台湾のお客様との信頼関係を基盤に、資産管理から事業承継、日本国内での事業運営まで、文化的背景や商慣行を踏まえた丁寧な対応を心がけています。
+        </p>
+      </div>
+      <span class="service-item-arrow"></span>
+    </a>
+
+    <a href="#intl-corporate" class="service-item">
+      <span class="service-item-number">09</span>
+      <div>
+        <h2 class="service-item-title">海外顧客向け：法人のお客様</h2>
+        <p class="service-item-desc">
+          日本での会社設立を、英語で。設立から運営まで、ひとつの窓口で。法人設立・税務顧問・補助金・月次レポートまで一貫対応。
+        </p>
+      </div>
+      <span class="service-item-arrow"></span>
+    </a>
+
+    <a href="#intl-individual" class="service-item">
+      <span class="service-item-number">10</span>
+      <div>
+        <h2 class="service-item-title">海外顧客向け：個人のお客様</h2>
+        <p class="service-item-desc">
+          日本の税金、払いすぎていませんか。納税管理人・不動産税務・確定申告を、あなたの代理人として。
         </p>
       </div>
       <span class="service-item-arrow"></span>
@@ -7512,38 +7568,6 @@
 <!-- =========================================== -->
 <!-- PAGE: International Hub -->
 <!-- =========================================== -->
-<section class="page" id="page-intl">
-  <nav class="breadcrumb">
-    <a href="#home">Home</a><span class="breadcrumb-sep">/</span>
-    <span class="breadcrumb-current">国際業務</span>
-  </nav>
-  <div class="page-heading has-breadcrumb">
-    <div class="page-eyebrow">For International Clients</div>
-    <h1 class="page-title">国際業務</h1>
-  </div>
-  <div class="detail-hero"><div class="detail-hero-image">IMAGE</div></div>
-  <section class="detail-section">
-    <div class="detail-section-header">
-      <div class="detail-section-body">
-        <p>三好公認会計士事務所は、海外からのお客様への税務・会計サービスを、英語・中国語で提供しています。法人のお客様と個人のお客様、それぞれのページをご用意しております。</p>
-      </div>
-    </div>
-  </section>
-  <div class="category-service-list">
-    <a href="#intl-corporate" class="service-list-item">
-      <span class="service-list-name">法人のお客様</span>
-      <span class="service-list-desc">日本での会社設立から運営まで、ひとつの窓口で。</span>
-      <span class="service-list-arrow">→</span>
-    </a>
-    <a href="#intl-individual" class="service-list-item">
-      <span class="service-list-name">個人のお客様</span>
-      <span class="service-list-desc">日本の税金、払いすぎていませんか。あなたの代理人として。</span>
-      <span class="service-list-arrow">→</span>
-    </a>
-  </div>
-  <div class="detail-back"><a href="#services">← サービス一覧に戻る</a></div>
-</section>
-
 <!-- =========================================== -->
 <!-- PAGE: International Corporate -->
 <!-- =========================================== -->
@@ -7554,9 +7578,9 @@
     <span class="breadcrumb-sep">/</span>
     <a href="#services">サービス内容</a>
     <span class="breadcrumb-sep">/</span>
-    <a href="#intl">国際業務</a>
+    <a href="#others">その他サービス・外国語対応</a>
     <span class="breadcrumb-sep">/</span>
-    <span class="breadcrumb-current">法人のお客様</span>
+    <span class="breadcrumb-current">海外顧客向け：法人のお客様</span>
   </nav>
 
   <div class="page-heading has-breadcrumb">
@@ -7809,9 +7833,9 @@
     <span class="breadcrumb-sep">/</span>
     <a href="#services">サービス内容</a>
     <span class="breadcrumb-sep">/</span>
-    <a href="#intl">国際業務</a>
+    <a href="#others">その他サービス・外国語対応</a>
     <span class="breadcrumb-sep">/</span>
-    <span class="breadcrumb-current">個人のお客様</span>
+    <span class="breadcrumb-current">海外顧客向け：個人のお客様</span>
   </nav>
 
   <div class="page-heading has-breadcrumb">
@@ -8116,14 +8140,13 @@
     'audit-corporate', 'audit-welfare', 'audit-school', 'audit-foreign',
     'others-cloud', 'others-ma', 'others-dd', 'others-valuation',
     'others-ipo', 'others-cfo', 'others-english', 'others-chinese',
-    'intl', 'intl-corporate', 'intl-individual'];
+    'intl-corporate', 'intl-individual'];
   // サービス系ハッシュ（ナビの「サービス内容」を強調するため）
   const SERVICE_HASHES = ['services', 'tax', 'finance', 'audit', 'others',
     'tax-corporate', 'tax-individual', 'tax-bookkeeping', 'tax-restructuring',
     'tax-inheritance', 'tax-secondopinion', 'tax-backoffice',
-    'finance-startup', 'finance-restructuring', 'finance-monozukuri', 'finance-it'];
-  // 国際業務系ハッシュ（ナビの「国際業務」を強調するため）
-  const INTL_HASHES = ['intl', 'intl-corporate', 'intl-individual'];
+    'finance-startup', 'finance-restructuring', 'finance-monozukuri', 'finance-it',
+    'intl-corporate', 'intl-individual'];
 
   function showPage() {
     // ハッシュ取得（無い場合は home）
@@ -8150,10 +8173,8 @@
       const navServices = document.querySelector('[data-nav="services"]');
       if (navServices) navServices.classList.add('is-current');
     }
-    if (INTL_HASHES.includes(hash)) {
-      const navIntl = document.querySelector('[data-nav="intl"]');
-      if (navIntl) navIntl.classList.add('is-current');
-    }
+    // intl pages highlight services nav (they live under others category)
+
 
     // スクロールトップ
     window.scrollTo(0, 0);
