@@ -8766,8 +8766,9 @@
     'intl-corporate-en', 'intl-individual-en', 'intl-corporate-zh', 'intl-individual-zh'];
 
   function showPage() {
-    // ハッシュ取得（無い場合は home）
-    let hash = window.location.hash.slice(1) || 'home';
+    // 通常の #home と Fusen共有URLの #...&section=home の両方を扱う
+    const rawHash = window.location.hash.slice(1);
+    let hash = new URLSearchParams(rawHash).get('section') || rawHash || 'home';
 
     // すべて非表示
     document.querySelectorAll('.page').forEach(p => p.classList.remove('is-active'));
