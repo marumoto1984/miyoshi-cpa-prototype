@@ -8768,7 +8768,15 @@
   function showPage() {
     // 通常の #home と Fusen共有URLの #...&section=home の両方を扱う
     const rawHash = window.location.hash.slice(1);
-    let hash = new URLSearchParams(rawHash).get('section') || rawHash || 'home';
+    const hashParameters = new URLSearchParams(rawHash);
+    const sharedSection = hashParameters.get('section');
+    let hash = sharedSection || rawHash || 'home';
+
+    // Fusen SDKが共有tokenをmemoryへ退避した後は、DBへ登録済みの正規page key
+    // （#home / #about ...）へ戻す。tokenが残る間はURLを書き換えない。
+    if (sharedSection && !hashParameters.has('fusen-token')) {
+      window.history.replaceState(window.history.state, '', '#' + sharedSection);
+    }
 
     // すべて非表示
     document.querySelectorAll('.page').forEach(p => p.classList.remove('is-active'));
